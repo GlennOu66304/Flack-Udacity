@@ -2,17 +2,22 @@
 import json
 import httplib2
 import requests
-
+from environs import Env
 import sys
 import codecs
 
 # sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 # sys.stderr = codecs.getwriter('utf8')(sys.stderr)
-
-
+env = Env()
+# Read .env into os.environ
+env.read_env()
+google_api_key=env.str("google_api_key")
+four_square_api_key=env.str("four_square_api_key")
+print(google_api_key)
+print(four_square_api_key)
 # foursquare_api_key="fsq3kkGDfSbSIUluvji+agZTCZRcJseDaGStGxmq63fp96E="
-google_api_key = "AIzaSyA8rtlvg5thByQ1V1gf5It6fFvxTpAxP-c"
-headers = {"Authorization": "fsq3kkGDfSbSIUluvji+agZTCZRcJseDaGStGxmq63fp96E="}
+google_api_key = google_api_key
+headers = {"Authorization": four_square_api_key}
 
 
 # Google API function
@@ -100,7 +105,7 @@ def findARestaurant(mealType, location):
 
 
 if __name__ == "__main__":
-    # findARestaurant("Pizza", "Tokyo, Japan")
+    findARestaurant("Pizza", "Tokyo, Japan")
     # findARestaurant("Tacos", "Jakarta, Indonesia")
     # findARestaurant("Tapas", "Maputo, Mozambique")
     findARestaurant("Falafel", "Cairo, Egypt")
