@@ -15,7 +15,7 @@ google_api_key=env.str("google_api_key")
 four_square_api_key=env.str("four_square_api_key")
 print(google_api_key)
 print(four_square_api_key)
-# foursquare_api_key="fsq3kkGDfSbSIUluvji+agZTCZRcJseDaGStGxmq63fp96E="
+
 google_api_key = google_api_key
 headers = {"Authorization": four_square_api_key}
 
